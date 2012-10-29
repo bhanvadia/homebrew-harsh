@@ -6,13 +6,6 @@ class LinaroNewlib < Formula
   sha1 '65e7bdbeda0cbbf99c8160df573fd04d1cbe00d1'
 end
 
-class LinaroBinutils < Formula
-  homepage 'http://www.gnu.org/software/binutils/binutils.html'
-  url 'http://ftpmirror.gnu.org/binutils/binutils-2.22.tar.gz'
-  mirror 'http://ftp.gnu.org/gnu/binutils/binutils-2.22.tar.gz'
-  md5 '8b3ad7090e3989810943aa19103fdb83'
-end
-
 class LinaroGdb < Formula
   homepage 'https://launchpad.net/gdb-linaro'
   url 'https://launchpad.net/gdb-linaro/7.5/7.5-2012.09/+download/gdb-linaro-7.5-2012.09.tar.bz2'
@@ -30,6 +23,7 @@ class ArmNoneEabiLinaro < Formula
   depends_on 'libmpc'
   depends_on 'ppl'
   depends_on 'cloog'
+  depends_on 'binutils'
 
   def install
     # Define the target triple
@@ -57,9 +51,9 @@ class ArmNoneEabiLinaro < Formula
     # We need to use our toolchain during the build process, prepend it to PATH
     ENV.prepend 'PATH', bin, ':'
 
-    # Build binutils and newlib alongside gcc for simplicity
+    # Build newlib alongside gcc for simplicity
     source_dir = Pathname.new Dir.pwd
-    [LinaroGdb, LinaroNewlib, LinaroBinutils].each do |formula|
+    [LinaroGdb, LinaroNewlib].each do |formula|
       formula.new.brew do |brew|
         system "rsync", "-av", "--ignore-existing", Dir.pwd+'/', source_dir
       end
