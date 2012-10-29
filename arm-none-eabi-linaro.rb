@@ -21,9 +21,9 @@ end
 
 class ArmNoneEabiLinaro < Formula
   homepage 'https://launchpad.net/gcc-linaro'
-  url 'https://launchpad.net/gcc-linaro/4.7/4.7-2012.06/+download/gcc-linaro-4.7-2012.06.tar.bz2'
-  md5 'd82f23f7feaad1721932481fe6fbc99c'
-  version '2012.06'
+  url 'https://launchpad.net/gcc-linaro/4.6/4.6-2012.10/+download/gcc-linaro-4.6-2012.10.tar.bz2'
+  md5 'acd304caf055ccaaca4e3ef61da11e7d'
+  version '2012.10'
   
   depends_on 'gmp'
   depends_on 'mpfr'
@@ -53,7 +53,6 @@ class ArmNoneEabiLinaro < Formula
       ENV['CPPFLAGS'] = "-I#{HOMEBREW_PREFIX}/include"
       ENV['LDFLAGS'] = "-L#{HOMEBREW_PREFIX}/lib"
     end
-    ENV.set_cflags "-Os -w -pipe"
 
     # We need to use our toolchain during the build process, prepend it to PATH
     ENV.prepend 'PATH', bin, ':'
