@@ -15,14 +15,14 @@ end
 
 class LinaroGdb < Formula
   homepage 'https://launchpad.net/gdb-linaro'
-  url 'https://launchpad.net/gdb-linaro/7.4/7.4-2012.06/+download/gdb-linaro-7.4-2012.06.tar.bz2'
-  md5 'f18fb5745da8bf3576f83971201acf12'
+  url 'https://launchpad.net/gdb-linaro/7.5/7.5-2012.09/+download/gdb-linaro-7.5-2012.09.tar.bz2'
+  md5 '758c2da97c27f7b50ca48cb803eaa9aa'
 end
 
 class ArmNoneEabiLinaro < Formula
   homepage 'https://launchpad.net/gcc-linaro'
-  url 'https://launchpad.net/gcc-linaro/4.6/4.6-2012.10/+download/gcc-linaro-4.6-2012.10.tar.bz2'
-  md5 'acd304caf055ccaaca4e3ef61da11e7d'
+  url 'https://launchpad.net/gcc-linaro/4.7/4.7-2012.10/+download/gcc-linaro-4.7-2012.10.tar.bz2'
+  md5 'a5ca87667350f1395d4da40c94ef059c'
   version '2012.10'
   
   depends_on 'gmp'
